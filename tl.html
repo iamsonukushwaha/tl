@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>tl</title>
+        <link rel="stylesheet" href="./tl.css">
+
+    </head>
+
+    <body>
+
+        <div class="main">
+            <div class="  circle">
+                <h1>READY</h1>
+            </div>
+            <div class=" circle">
+                <h1>GO</h1>
+            </div>
+            <div class=" circle">
+                <h1>STOP</h1>
+            </div>
+        </div>
+
+        <script>
+            let nIntervId;
+
+            function changeColor() {
+                // check if already an interval has been set up
+                if (!nIntervId) {
+                    nIntervId = setInterval(flashText, 3000);
+                }
+            }
+
+            const oElem = document.getElementsByClassName("circle");
+            function flashText() {
+                // const tl = document.getElementById("tl");
+                if (oElem[0].classList.contains("yellow")) {
+                    oElem[1].classList.add("green");
+                    oElem[0].classList.remove("yellow");
+                } else if (oElem[1].classList.contains("green")) {
+                    oElem[2].classList.add("red");
+                    oElem[1].classList.remove("green");
+                } else {
+                    oElem[0].classList.add("yellow");
+                    oElem[2].classList.remove("red");
+                }
+            }
+            oElem[0].classList.add("yellow");
+
+
+            changeColor();
+
+
+        </script>
+    </body>
+
+</html>
